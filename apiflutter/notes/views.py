@@ -18,7 +18,7 @@ def person_form(request):
         form = PersonForm(request.POST)
         if form.is_valid():
             person = form.save()
-            return redirect('person_detail', pk=person.pk)
+            return redirect('person_list')
         else:
             return HttpResponseBadRequest("Invalid form data")
     else:
