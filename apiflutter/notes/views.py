@@ -30,7 +30,7 @@ def profession_form(request):
         form = ProfessionForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'profession_list.html')  # ou redirecione para outra página
+            return render(request, 'profession_list.html', {'professions': Profession.objects.all()})
     else:
         form = ProfessionForm()
     return render(request, 'profession_form.html', {'form': form})
